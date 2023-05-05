@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Together</title>
+      <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+  margin-top: 50px;
+}
+
+h3 {
+  font-size: 24px;
+  color: #333;
+  margin-top: 30px;
+}
+
+h4 {
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+h3 span {
+  font-weight: bold;
+  font-size: 48px;
+  color: #4CAF50;
+  display: block;
+  margin-top: 20px;
+}
+
+a {
+  display: block;
+  margin-top: 40px;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  margin-top: 40px;
+}
+
+
+      </style>
+   </head>
+   <body>
+    {% if result == 'Depressed' %}
+    <h1><br>You are suffering from Depression.</h1> <br> <br><h4>Scan the below QR code to install Together app if you or your loved ones need assistance in mental health.</h4>
+    {% elif result == 'Severely Depressed' %}
+    <h1><br>You are suffering from Severe Depression.</h1> <br> <br><h4>Scan the below QR code to install Together app if you or your loved ones need assistance in mental health.</h4>
+    {% else %}
+    <h1>Congratulation! </h1> <h4>You are not suffering from depression. <br><br> Scan the below QR code to install Together app if you or your loved ones need assistance in mental health. </h4>
+    {% endif %}
+
+      <div>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://www.yourapp.com/" alt="QR Code">
+      </div>
+   </body>
+</html>

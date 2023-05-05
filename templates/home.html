@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Together</title>
+      <style>
+         body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+}
+
+form {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+p {
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+input[type="submit"] {
+  background-color: #3b7d91;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 120px;
+  margin-left: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #4a9cb5;
+}
+
+      </style>
+   </head>
+   <body>
+      <h1><br>Find your depression level!</h1> <br>
+      <form action="{{ url_for('predict') }}" method="POST"  id="depression-form">
+         <p>Over the last two weeks, how often have you been bothered by any of the following problems?</p>
+         <p>1. Little interest or pleasure in doing things</p>
+         <input type="radio" name="Q1" value="0" required> Not at all<br>
+         <input type="radio" name="Q1" value="1" required> Several days<br>
+         <input type="radio" name="Q1" value="2" required> More than half the days<br>
+         <input type="radio" name="Q1" value="3" required> Nearly every day<br><br>
+
+         <p>2. Feeling down, depressed, or hopeless</p>
+         <input type="radio" name="Q2" value="0" required> Not at all<br>
+         <input type="radio" name="Q2" value="1" required> Several days<br>
+         <input type="radio" name="Q2" value="2" required> More than half the days<br>
+         <input type="radio" name="Q2" value="3" required> Nearly every day<br><br>
+
+         <p>3. Trouble falling or staying asleep, or sleeping too much</p>
+         <input type="radio" name="Q3" value="0" required> Not at all<br>
+         <input type="radio" name="Q3" value="1" required> Several days<br>
+         <input type="radio" name="Q3" value="2" required> More than half the days<br>
+         <input type="radio" name="Q3" value="3" required> Nearly every day<br><br>
+
+         <p>4. Feeling tired or having little energy</p>
+         <input type="radio" name="Q4" value="0" required> Not at all<br>
+         <input type="radio" name="Q4" value="1" required> Several days<br>
+         <input type="radio" name="Q4" value="2" required> More than half the days<br>
+         <input type="radio" name="Q4" value="3" required> Nearly every day<br><br>
+
+         <p>5. Poor appetite or overeating ?</p>
+         <input type="radio" name="Q5" value="0" required> Not at all<br>
+         <input type="radio" name="Q5" value="1" required> Several days<br>
+         <input type="radio" name="Q5" value="2" required> More than half the days<br>
+         <input type="radio" name="Q5" value="3" required> Nearly every day<br><br>
+
+         <p>6. Feeling memory loss or having trouble remembering?</p>
+         <input type="radio" name="Q6" value="0" required> Not at all<br>
+         <input type="radio" name="Q6" value="1" required> Several days<br>
+         <input type="radio" name="Q6" value="2" required> More than half the days<br>
+         <input type="radio" name="Q6" value="3" required> Nearly every day<br><br>
+
+         <p>7. Feeling bad about yourself or that you are a failure or have let yourself or your family down?</p>
+         <input type="radio" name="Q7" value="0" required> Not at all<br>
+         <input type="radio" name="Q7" value="1" required> Several days<br>
+         <input type="radio" name="Q7" value="2" required> More than half the days<br>
+         <input type="radio" name="Q7" value="3" required> Nearly every day<br><br>
+    
+         <p>8. Trouble concentrating on things, such as reading the newspaper or watching television?</p>
+         <input type="radio" name="Q8" value="0" required> Not at all<br>
+         <input type="radio" name="Q8" value="1" required> Several days<br>
+         <input type="radio" name="Q8" value="2" required> More than half the days<br>
+         <input type="radio" name="Q8" value="3" required> Nearly every day<br><br>
+    
+         <p>9. Moving or speaking so slowly or have been moving around a lot more than usual that other people could have noticed?</p>
+         <input type="radio" name="Q9" value="0" required> Not at all<br>
+         <input type="radio" name="Q9" value="1" required> Several days<br>
+         <input type="radio" name="Q9" value="2" required> More than half the days<br>
+         <input type="radio" name="Q9" value="3" required> Nearly every day<br><br>
+    
+         <p>10. Aches or pains, headaches, cramps, or digestive problems without a clear physical cause and/or that do not ease even with treatment?</p>
+         <input type="radio" name="Q10" value="0" required> Not at all<br>
+         <input type="radio" name="Q10" value="1" required> Several days<br>
+         <input type="radio" name="Q10" value="2" required> More than half the days<br>
+         <input type="radio" name="Q10" value="3" required> Nearly every day<br><br>
+    
+         <p>11. Thoughts that you would be better off dead, or hurting yourself in some way?</p>
+         <input type="radio" name="Q11" value="0" required> Not at all<br>
+         <input type="radio" name="Q11" value="1" required> Several days<br>
+         <input type="radio" name="Q11" value="2" required> More than half the days<br>
+         <input type="radio" name="Q11" value="3" required> Nearly every day<br><br>
+         <br>
+    
+         <input type="submit" value="predict">
+         <br><br>
+      </form>
+      <br><br>
+    </body>
+</html>
