@@ -27,9 +27,4 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-    # Step 4: Deploy Flask app to GCP (adjust this according to your deployment process)
-      - name: Deploy Flask app to GCP
-        run: |
-          # Commands to deploy your Flask app to GCP
-          # For example, you can use the gcloud CLI to deploy to App Engine:
-          # gcloud app deploy app.yaml
+ 
