@@ -1,33 +1,27 @@
-
-name: CI / CD
+name: CI/CD
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    # Step 1: Checkout the code
       - name: Checkout code
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
-    # Step 2: Set up Python environment
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
 
-    # Step 3: Install dependencies
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-    # Step 4: Deploy Flask app to GCP (adjust this according to your deployment process)
       - name: Deploy Flask app to GCP
         run: |
           # Commands to deploy your Flask app to GCP
