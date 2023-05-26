@@ -28,8 +28,17 @@ jobs:
       - name: Run Tests
         run: python -m pytest
 
+      - name: Install gcloud SDK
+        uses: google-github-actions/setup-gcloud@v0.3.0
+        with:
+          project_id: ${{ secrets.TOGETHER_WEB }}
+          service_account_key: ${{ secrets.TOGETHER_WEB }}
+
+      - name: Authenticate gcloud SDK
+        run: gcloud auth activate-service-account --key-file=${{ secrets.TOGETHER_WEB }}
+
+      - name: Set gcloud SDK project
+        run: gcloud config set project ${{ secrets.TOGETHER_WEB }}
+
       - name: Deploy Flask app to GCP
-        run: |
-          # Commands to deploy your Flask app to GCP
-          # For example, you can use the gcloud CLI to deploy to App Engine:
-          # gcloud app deploy app.yaml
+        run: gcloud app deploy
